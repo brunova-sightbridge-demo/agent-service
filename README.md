@@ -49,7 +49,7 @@ The console and chat share one server-side session. Its cookie is `HttpOnly`; th
 - `CHAT_LOGIN_REQUIRED=true` requires a session to use chat. The console always requires a session and a `viewer`, `curator`, or `admin` role.
 - `CHAT_SHOW_CITATIONS=true` shows sources; `ANSWER_REQUIRE_SOURCES=true` withholds answers without sufficient evidence.
 - `AGENT_SCOPE_POLICY` defines the allowed subject matter, and `AGENT_ADVICE_POLICY` describes personalized requests the assistant must decline. When empty, the reusable base adds no domain-specific limits.
-- `AGENT_DISCLAIMER_ES` and `AGENT_DISCLAIMER_EN` customize the notice. This deployment shows it below every completed answer, including greetings and answers without sources.
+- `AGENT_DISCLAIMER_ES` and `AGENT_DISCLAIMER_EN` customize the notice. The chat shows it within the expanded sources section only when an answer cites a source; greetings and answers without sources omit it.
 - PDF, DOCX, TXT, Markdown, and HTML uploads accept an optional public HTTPS link. The link is retained as citation provenance. Verify each link and list the deployment's sources in its README.
 - Each completed exchange stores the question, answer, sources, date, and verified email (or visitor in a public chat), regardless of the memory setting. Only administrators can read chat history. Optional memory changes the user's conversational context, not the administrative record.
 - The console separates operational information from technical observability. Search passages are available inside each document's details.

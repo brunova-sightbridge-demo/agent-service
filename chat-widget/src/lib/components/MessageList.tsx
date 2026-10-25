@@ -112,14 +112,7 @@ export function MessageList({ messages, language, showCitations = false }: Messa
             <p className="mt-2 text-xs text-[var(--scol-danger)]">{msg.errorMessage}</p>
           )}
           {showCitations && msg.role === "agent" && !!msg.citations?.length && (
-            <SourcesBlock language={language} citations={msg.citations} />
-          )}
-          {msg.role === "agent" && msg.status === "completed" && (
-            <p className="mt-3 border-t border-[var(--scol-border)] pt-2 text-[0.68rem] leading-relaxed text-[var(--scol-text-muted)]">
-              {msg.disclaimer || (language === "es"
-                ? "Información general; no sustituye asesoría fiscal, legal ni financiera profesional."
-                : "General information only; not a substitute for professional tax, legal, or financial advice.")}
-            </p>
+            <SourcesBlock language={language} citations={msg.citations} disclaimer={msg.disclaimer} />
           )}
         </article>
       ))}
