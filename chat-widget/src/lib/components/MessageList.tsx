@@ -83,10 +83,29 @@ export function MessageList({ messages, language, showCitations = false }: Messa
     }
   }, [messages]);
 
+  useEffect(() => {
+    const list = listRef.current;
+    if (!list) return;
+    const onWheel = (event: WheelEvent) => {
+      let target = event.target as HTMLElement | null;
+      while (target && target !== list) {
+        const maxScroll = target.scrollHeight - target.clientHeight;
+        const canScroll = event.deltaY < 0 ? target.scrollTop > 0 : target.scrollTop < maxScroll;
+        if (maxScroll > 1 && canScroll && /auto|scroll/.test(getComputedStyle(target).overflowY)) break;
+        target = target.parentElement;
+      }
+      event.preventDefault();
+      event.stopPropagation();
+      (target || list).scrollTop += event.deltaY;
+    };
+    list.addEventListener("wheel", onWheel, { passive: false });
+    return () => list.removeEventListener("wheel", onWheel);
+  }, []);
+
   return (
     <div
       ref={listRef}
-      className="scol-scrollbar min-h-0 flex-1 overflow-y-auto px-4 pb-4 pt-2"
+      className="scol-scrollbar min-h-0 flex-1 overflow-y-auto overscroll-y-contain px-4 pb-4 pt-2"
       role="log"
       aria-live="polite"
     >

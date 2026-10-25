@@ -8,11 +8,19 @@ type OverlayProps = {
 
 export function Overlay({ children, onClose }: OverlayProps) {
   useEffect(() => {
+    const previousBodyOverflow = document.body.style.overflow;
+    const previousPageOverflow = document.documentElement.style.overflow;
+    document.body.style.overflow = "hidden";
+    document.documentElement.style.overflow = "hidden";
     const onKey = (e: KeyboardEvent) => {
       if (e.key === "Escape") onClose?.();
     };
     document.addEventListener("keydown", onKey);
-    return () => document.removeEventListener("keydown", onKey);
+    return () => {
+      document.removeEventListener("keydown", onKey);
+      document.body.style.overflow = previousBodyOverflow;
+      document.documentElement.style.overflow = previousPageOverflow;
+    };
   }, [onClose]);
 
   return (
