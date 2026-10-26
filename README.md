@@ -29,7 +29,7 @@ The API listens at `http://localhost:8001` by default. `GET /ready` checks its d
 
 ## Deployed demo
 
-The public landing is [sightbridge.brunova.mx](https://sightbridge.brunova.mx/), the authorized console is at [/console/](https://sightbridge.brunova.mx/console/), and the API is proxied under `/api/` on the same HTTPS origin. The Google web client must include `https://sightbridge.brunova.mx/api/auth/google/callback` as an authorized redirect. Build the console with `VITE_BASE_PATH=/console/` and `VITE_API_BASE=https://sightbridge.brunova.mx/api`; Nginx serves its static output while the API listens only on the VPS loopback interface.
+The [public landing](https://sightbridge.brunova.mx/) and [authorized console](https://sightbridge.brunova.mx/console/) share one HTTPS origin, with the API proxied under `/api/`. The Google web client must include `https://sightbridge.brunova.mx/api/auth/google/callback` as an authorized redirect. Build the console with `VITE_BASE_PATH=/console/` and `VITE_API_BASE=https://sightbridge.brunova.mx/api`; Nginx serves its static output while the API listens only on the VPS loopback interface.
 
 Compose persists PostgreSQL and Redis in named volumes and mounts the private uploads directory described below. Back up the database volume and uploads together. Production secrets belong only in ignored `.env` files on the server, never in the static landing, console build, or Git.
 
