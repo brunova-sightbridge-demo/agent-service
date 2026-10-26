@@ -3,7 +3,7 @@ import { clsx } from "clsx";
 import { Overlay, PanelShell, Drawer } from "./components/Primitives";
 import { AgentChatPanel } from "./AgentChatPanel";
 import type { Language, AgentChatBaseProps } from "./types";
-import { AgentIcon, BadgeDot, ChatIcon } from "./components/icons";
+import { AgentIcon, BadgeDot } from "./components/icons";
 import { defaultTheme } from "./theme";
 import { readSharedAccent } from "./accent";
 
