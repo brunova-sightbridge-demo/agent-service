@@ -5,13 +5,13 @@ export const defaultTheme: AgentTheme = {
   primary: "#1E1E24",
   primaryDark: "#14141A",
   surface: "#FFFFFF",
-  surfaceAlt: "#F7F9FC",
-  text: "#0F172A",
-  textMuted: "#5B6475",
-  border: "#E6E9EF",
+  surfaceAlt: "#F7F4EE",
+  text: "#1E1E24",
+  textMuted: "#555158",
+  border: "#DED6CA",
   success: "#0BB07B",
   danger: "#DC4B57",
-  shadow: "0 20px 60px rgba(6, 40, 77, 0.12)",
+  shadow: "0 20px 60px rgba(30, 30, 36, 0.16)",
 };
 
 export function applyTheme(theme?: Partial<AgentTheme>) {

@@ -6,13 +6,13 @@
   --scol-primary: #1e1e24;
   --scol-primary-dark: #14141a;
   --scol-surface: #ffffff;
-  --scol-surface-alt: #f7f9fc;
-  --scol-text: #0f172a;
-  --scol-text-muted: #5b6475;
-  --scol-border: #e6e9ef;
+  --scol-surface-alt: #f7f4ee;
+  --scol-text: #1e1e24;
+  --scol-text-muted: #555158;
+  --scol-border: #ded6ca;
   --scol-success: #0bb07b;
   --scol-danger: #dc4b57;
-  --scol-shadow: 0 20px 60px rgba(6, 40, 77, 0.12);
+  --scol-shadow: 0 20px 60px rgba(30, 30, 36, 0.16);
 }
 
 .agent-dev-shell {

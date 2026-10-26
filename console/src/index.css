@@ -9,9 +9,9 @@
   --accent-primary: 30 30 36;
   --accent-dark: 20 20 26;
   --accent-light: 57 57 64;
-  --accent-banner-start: 18 24 41;
-  --accent-banner-end: 24 29 45;
-  --accent-glow: 163 166 172;
+  --accent-banner-start: 30 30 36;
+  --accent-banner-end: 45 43 45;
+  --accent-glow: 233 226 214;
 }
 
 body {

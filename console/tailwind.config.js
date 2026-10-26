@@ -10,13 +10,13 @@ export default {
           light: "rgb(var(--accent-light) / <alpha-value>)",
         },
         slate: {
-          25: "#F8FAFC",
+          25: "#F7F4EE",
         },
         ink: {
-          DEFAULT: "#1E293B",
-          muted: "#475569",
+          DEFAULT: "#1E1E24",
+          muted: "#555158",
         },
-        border: "#E2E8F0",
+        border: "#DED6CA",
       },
       fontFamily: {
         sans: ["Inter", "Poppins", "ui-sans-serif", "system-ui"],

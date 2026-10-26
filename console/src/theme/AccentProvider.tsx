@@ -43,9 +43,9 @@ export function AccentProvider({ children }: { children: ReactNode }) {
     document.documentElement.style.setProperty("--accent-dark", selected.dark);
     document.documentElement.style.setProperty("--accent-light", selected.light);
     const channels = selected.primary.split(" ").map(Number);
-    document.documentElement.style.setProperty("--accent-banner-start", blend([15, 23, 42], channels, 0.18));
-    document.documentElement.style.setProperty("--accent-banner-end", blend([17, 39, 55], channels, 0.55));
-    document.documentElement.style.setProperty("--accent-glow", blend(channels, [245, 249, 255], 0.62));
+    document.documentElement.style.setProperty("--accent-banner-start", blend([30, 30, 36], channels, 0.18));
+    document.documentElement.style.setProperty("--accent-banner-end", blend([45, 43, 45], channels, 0.55));
+    document.documentElement.style.setProperty("--accent-glow", blend(channels, [233, 226, 214], 0.62));
     const domain = import.meta.env.VITE_ACCENT_COOKIE_DOMAIN?.trim();
     const cookieScope = domain && /^[a-zA-Z0-9.-]+$/.test(domain) ? `; Domain=${domain}` : "";
     const secure = window.location.protocol === "https:" ? "; Secure" : "";
