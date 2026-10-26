@@ -112,26 +112,24 @@ export function AgentChatPanel({
 
   return (
     <div className="relative flex h-full min-h-0 w-full max-w-[420px] flex-col rounded-3xl bg-[var(--scol-surface)] shadow-2xl">
-      <header className="flex items-start gap-3 border-b border-[var(--scol-border)] px-5 py-4">
+      <header className="flex items-center gap-3 border-b border-[var(--scol-border)] px-5 py-4">
         <button
           type="button"
           onClick={onClose}
           className={clsx(
-            "flex flex-1 items-start gap-3 rounded-2xl text-left transition",
+            "flex min-w-0 flex-1 items-center gap-3 rounded-2xl text-left transition",
             onClose && "cursor-pointer hover:bg-[var(--scol-surface-alt)]",
           )}
           aria-label={t(lang, "close")}
         >
-          <div className="flex h-11 w-11 items-center justify-center rounded-2xl border-2 border-[var(--scol-primary)] bg-white text-[var(--scol-primary)] shadow-md">
+          <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl border-2 border-[var(--scol-primary)] bg-white text-[var(--scol-primary)] shadow-md">
             <span className="text-sm font-bold">SB</span>
           </div>
-          <div className="flex-1">
+          <div className="min-w-0 flex-1">
             <p className="text-base font-semibold text-[var(--scol-text)]">
               {headerTitle || t(lang, "title")}
             </p>
-            <p className="text-sm text-[var(--scol-text-muted)]">
-              {subtitle || t(lang, "subtitle")}
-            </p>
+            {subtitle && <p className="text-xs text-[var(--scol-text-muted)]">{subtitle}</p>}
           </div>
         </button>
         <select
