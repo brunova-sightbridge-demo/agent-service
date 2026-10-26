@@ -9,6 +9,7 @@ import { readSharedAccent } from "./accent";
 
 export interface AgentChatBubbleProps extends AgentChatBaseProps {
   placement?: "bottom-right" | "bottom-left";
+  launcherInset?: boolean;
   open?: boolean;
   onOpenChange?: (open: boolean) => void;
 }
@@ -20,6 +21,7 @@ export function AgentChatBubble({
   memOptIn,
   theme,
   placement = "bottom-right",
+  launcherInset = false,
   open,
   onOpenChange,
 }: AgentChatBubbleProps) {
@@ -113,6 +115,7 @@ export function AgentChatBubble({
   }, [open]);
 
   const bubblePosition = placement === "bottom-right" ? "right-6" : "left-6";
+  const launcherPosition = placement === "bottom-right" && launcherInset ? "right-48" : bubblePosition;
 
   const effectiveTheme = useMemo(() => ({ ...defaultTheme, ...(theme || {}), ...(sharedAccent || {}) }), [theme, sharedAccent]);
   const themeStyle = useMemo(() => {
@@ -133,7 +136,7 @@ export function AgentChatBubble({
 
   return (
     <div style={themeStyle}>
-      <div className={clsx("group fixed bottom-6 z-30", bubblePosition)}>
+      <div className={clsx("group fixed z-30", launcherInset ? "bottom-24" : "bottom-6", launcherPosition)}>
         {!isOpen && (
           <span className={clsx(
             "pointer-events-none absolute bottom-full mb-3 w-max max-w-[220px] rounded-xl border border-[var(--scol-border)] bg-white px-3 py-2 text-xs font-medium text-[var(--scol-text)] shadow-lg opacity-0 transition-opacity duration-200 group-hover:opacity-100 group-focus-within:opacity-100",
