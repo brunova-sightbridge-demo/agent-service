@@ -27,6 +27,12 @@ npm run dev --prefix console -- --port 5176
 
 The API listens at `http://localhost:8001` by default. `GET /ready` checks its dependencies. Run the companion landing on `http://localhost:8766` with its README instructions. Upload sources in the console with their public URL; the worker indexes them. The original stays available in the document detail to authorized console users.
 
+## Deployed demo
+
+The public landing is [sightbridge.brunova.mx](https://sightbridge.brunova.mx/), the authorized console is at [/console/](https://sightbridge.brunova.mx/console/), and the API is proxied under `/api/` on the same HTTPS origin. The Google web client must include `https://sightbridge.brunova.mx/api/auth/google/callback` as an authorized redirect. Build the console with `VITE_BASE_PATH=/console/` and `VITE_API_BASE=https://sightbridge.brunova.mx/api`; Nginx serves its static output while the API listens only on the VPS loopback interface.
+
+Compose persists PostgreSQL and Redis in named volumes and mounts the private uploads directory described below. Back up the database volume and uploads together. Production secrets belong only in ignored `.env` files on the server, never in the static landing, console build, or Git.
+
 ### Uploaded files on the VPS
 
 For this deployment, the private persistent host directory is `/var/lib/sightbridge-agent/uploads`. Set `UPLOADS_HOST_DIR` to that path in the root `.env` before starting Compose on the VPS. The API and ingestion worker mount the same directory at `/app/app/data/uploads`; local development keeps the existing repository-relative directory when the variable is unset. Back up this directory together with the application database, since document records refer to the stored originals.
@@ -70,7 +76,7 @@ The `source-docs/` files are short **curated paraphrases** of public pages, each
 | `06-sec-nontraded-reits.md` | [SEC Investor.gov: non-traded REIT bulletin](https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins-89) |
 | `07-sightbridge-strategies.md` | [Sightbridge: public strategies](https://sightbridge.com/) |
 
-The demo corpus was loaded in the isolated local database. A fresh installation needs these seven cards uploaded through the admin console with their public URLs; Git does not include a populated database or user records.
+The seven cards are loaded in the deployed demo and were verified ready in its admin console. A fresh installation needs them uploaded through the admin console with their public URLs; Git does not include a populated database or user records.
 
 ## Verification and delivery
 
