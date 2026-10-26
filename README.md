@@ -64,19 +64,19 @@ Passage selection and answer checks use a model: they reject answers without fou
 
 ## Public source set
 
-The `source-docs/` files are short **curated paraphrases** of public pages, each linked to its original. They are a deliberately small demo corpus, not official reproductions or current transaction guidance. Citations in the app point to the stored passage and link to the public original; verify the original before relying on an answer.
+The demo corpus uses the complete readable body of each public original below, not short paraphrases. The seven downloaded originals and extracted upload files are kept outside Git. Each upload retains its exact public URL as citation provenance. Recheck publication dates and the original pages before relying on a legal, tax, or investment statement; full-source ingestion does not make the agent a professional advisor.
 
-| Card | Public original |
+| Uploaded document | Public original |
 | --- | --- |
-| `01-irs-1031-real-estate.md` | [IRS: like-kind exchanges, real-estate tax tips](https://www.irs.gov/businesses/small-businesses-self-employed/like-kind-exchanges-real-estate-tax-tips) |
-| `02-irs-8824-timing.md` | [IRS: Form 8824 instructions](https://www.irs.gov/instructions/i8824) |
-| `03-irs-publication-544.md` | [IRS: Publication 544](https://www.irs.gov/publications/p544) |
-| `04-irs-dst-ruling.md` | [IRS: Revenue Ruling 2004-86](https://www.irs.gov/irb/2004-33_IRB) |
-| `05-irs-publication-541.md` | [IRS: Publication 541](https://www.irs.gov/publications/p541) |
-| `06-sec-nontraded-reits.md` | [SEC Investor.gov: non-traded REIT bulletin](https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins-89) |
-| `07-sightbridge-strategies.md` | [Sightbridge: public strategies](https://sightbridge.com/) |
+| `01-irs-1031-real-estate.txt` | [IRS: like-kind exchanges, real-estate tax tips](https://www.irs.gov/businesses/small-businesses-self-employed/like-kind-exchanges-real-estate-tax-tips) |
+| `02-irs-8824-timing.txt` | [IRS: Form 8824 instructions](https://www.irs.gov/instructions/i8824) |
+| `03-irs-publication-544.txt` | [IRS: Publication 544](https://www.irs.gov/publications/p544) |
+| `04-irs-dst-ruling.txt` | [IRS: Revenue Ruling 2004-86](https://www.irs.gov/irb/2004-33_IRB) |
+| `05-irs-publication-541.txt` | [IRS: Publication 541](https://www.irs.gov/publications/p541) |
+| `06-sec-nontraded-reits.txt` | [SEC Investor.gov: non-traded REIT bulletin](https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins-89) |
+| `07-sightbridge-strategies.txt` | [Sightbridge: public strategies](https://sightbridge.com/) |
 
-The seven cards are loaded in the deployed demo and were verified ready in its admin console. A fresh installation needs them uploaded through the admin console with their public URLs; Git does not include a populated database or user records.
+The deployed demo loads these seven source bodies. Ingestion splits the text into overlapping 600-character passages; verify each document's ready status and chunk count in the admin console. A fresh installation must download the original pages, extract their complete article or publication body without site navigation and active HTML, and upload the text with the corresponding public URL. For Revenue Ruling 2004-86, extract the entire ruling from the linked Internal Revenue Bulletin rather than indexing unrelated rulings in that issue. Git does not include source copies, a populated database, or user records.
 
 ## Verification and delivery
 
