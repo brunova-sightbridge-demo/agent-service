@@ -1,11 +1,11 @@
-import React, { FormEvent, useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState, type FormEvent } from "react";
 import { clsx } from "clsx";
 import { MessageList } from "./components/MessageList";
 import { useChatAgent } from "./hooks/useChatAgent";
 import { t } from "./i18n";
-import { applyTheme, defaultTheme } from "./theme";
+import { applyTheme } from "./theme";
 import type { Language, AgentChatBaseProps } from "./types";
-import { ChatIcon, CloseIcon, LightningIcon, LogOutIcon, SendIcon } from "./components/icons";
+import { CloseIcon, LightningIcon, LogOutIcon, SendIcon } from "./components/icons";
 
 export interface AgentChatPanelProps extends AgentChatBaseProps {
   onClose?: () => void;
