@@ -1,6 +1,6 @@
 # Sightbridge Advisor AI Demo — Agent Service
 
-This repository is an isolated Sightbridge demo built from the reusable Agent Service base. It provides a document-grounded advisor Q&A API, the chat widget, and an admin console. It is an independent prototype by Brunova, not an official Sightbridge site or investment product. The companion landing lives in the separate `landing` repository in the same organization.
+This repository is an isolated Sightbridge demo built from the reusable Agent Service base. It provides a document-grounded advisor Q&A API, the chat widget, and an admin console. It is an independent prototype by Jorge Vera, not an official Sightbridge site or investment product. The companion landing lives in the separate `landing` repository in the same organization.
 
 The system gives general educational answers about Section 1031 real-estate exchanges, Delaware statutory trusts, and possible later Section 721 contributions. It does not assess an individual's transaction or recommend an investment. Its source and advice rules are in `agent-service/.env.example` and can be revised without changing the reusable base.
 
