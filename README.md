@@ -54,7 +54,7 @@ The console and chat share one server-side session. Its cookie is `HttpOnly`; th
 
 - `CHAT_LOGIN_REQUIRED=true` requires a session to use chat. The console always requires a session and a `viewer`, `curator`, or `admin` role.
 - `CHAT_SHOW_CITATIONS=true` shows sources; `ANSWER_REQUIRE_SOURCES=true` withholds answers without sufficient evidence.
-- `AGENT_SCOPE_POLICY` defines the allowed subject matter, and `AGENT_ADVICE_POLICY` describes personalized requests the assistant must decline. When empty, the reusable base adds no domain-specific limits.
+- Keep `AGENT_SCOPE_POLICY` empty so questions about any approved uploaded document can reach retrieval. `ANSWER_REQUIRE_SOURCES` still withholds unsupported answers, and `AGENT_ADVICE_POLICY` still declines personalized decisions.
 - `AGENT_DISCLAIMER_ES` and `AGENT_DISCLAIMER_EN` customize the notice. The chat shows it within the expanded sources section only when an answer cites a source; greetings and answers without sources omit it.
 - PDF, DOCX, TXT, Markdown, and HTML uploads accept an optional public HTTPS link. The link is retained as citation provenance. Verify each link and list the deployment's sources in its README.
 - Each completed exchange stores the question, answer, sources, date, and verified email (or visitor in a public chat), regardless of the memory setting. Only administrators can read chat history. Optional memory changes the user's conversational context, not the administrative record.
@@ -64,7 +64,7 @@ Passage selection and answer checks use a model: they reject answers without fou
 
 ## Public source set
 
-The demo corpus uses the complete readable body of each public original below, not short paraphrases. The seven downloaded originals and extracted upload files are kept outside Git. Each upload retains its exact public URL as citation provenance. Recheck publication dates and the original pages before relying on a legal, tax, or investment statement; full-source ingestion does not make the agent a professional advisor.
+The demo corpus uses the complete readable body of each of the seven public originals below, not short paraphrases, plus an original company-context synthesis of Sightbridge's public website. The downloaded originals and extracted upload files are kept outside Git. Each upload retains a public URL as citation provenance. Recheck publication dates and the original pages before relying on a legal, tax, or investment statement; full-source ingestion does not make the agent a professional advisor.
 
 | Uploaded document | Public original |
 | --- | --- |
@@ -75,8 +75,9 @@ The demo corpus uses the complete readable body of each public original below, n
 | `05-irs-publication-541.txt` | [IRS: Publication 541](https://www.irs.gov/publications/p541) |
 | `06-sec-nontraded-reits.txt` | [SEC Investor.gov: non-traded REIT bulletin](https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins-89) |
 | `07-sightbridge-strategies.txt` | [Sightbridge: public strategies](https://sightbridge.com/) |
+| `08-sightbridge-company-context.md` | [Sightbridge: company, team, and strategy pages](https://sightbridge.com/sitemap.xml) — original synthesis with links to the relevant official page in each section |
 
-The deployed demo loads these seven source bodies. Ingestion splits the text into overlapping 600-character passages; verify each document's ready status and chunk count in the admin console. A fresh installation must download the original pages, extract their complete article or publication body without site navigation and active HTML, and upload the text with the corresponding public URL. For Revenue Ruling 2004-86, extract the entire ruling from the linked Internal Revenue Bulletin rather than indexing unrelated rulings in that issue. Git does not include source copies, a populated database, or user records.
+The deployed demo loads the seven original source bodies and the company-context synthesis. Ingestion splits the text into overlapping 600-character passages; verify each document's ready status and chunk count in the admin console. A fresh installation must download the original pages, extract their complete article or publication body without site navigation and active HTML, and upload the text with the corresponding public URL. For Revenue Ruling 2004-86, extract the entire ruling from the linked Internal Revenue Bulletin rather than indexing unrelated rulings in that issue. Git does not include source copies, a populated database, or user records.
 
 ## Verification and delivery
 
